@@ -1,6 +1,31 @@
+/// A type that represents a power of two. It holds a u128 internally, but can be constructed from any integer type.
+/// # Examples
+/// ```
+/// use power_of_two::PowerOfTwo;
+/// assert!(PowerOfTwo::try_from(1u8).is_ok());
+/// assert!(PowerOfTwo::try_from(2u16).is_ok());
+/// assert!(PowerOfTwo::try_from(3u32).is_err());
+/// assert!(PowerOfTwo::try_from(4u64).is_ok());
+/// assert!(PowerOfTwo::try_from(5u128).is_err());
+/// assert!(PowerOfTwo::try_from(6usize).is_err());
+/// assert!(PowerOfTwo::try_from(7i8).is_err());
+/// assert!(PowerOfTwo::try_from(8i16).is_ok());
+/// assert!(PowerOfTwo::try_from(9i32).is_err());
+/// assert!(PowerOfTwo::try_from(10i64).is_err());
+/// assert!(PowerOfTwo::try_from(11i128).is_err());
+/// assert!(PowerOfTwo::try_from(12isize).is_err());
+/// ```
 pub struct PowerOfTwo(u128);
 
 impl PowerOfTwo {
+    /// Parses a number into a power of two.
+    /// # Examples
+    /// ```
+    /// use power_of_two::PowerOfTwo;
+    /// assert!(PowerOfTwo::parse(1).is_ok());
+    /// assert!(PowerOfTwo::parse(2).is_ok());
+    /// assert!(PowerOfTwo::parse(3).is_err());
+    /// ```
     pub fn parse(number: u128) -> Result<Self, String> {
         if number < 1 || number & (number - 1) != 0 {
             return Err(format!("{} is not a valid power of two", number));
@@ -176,5 +201,22 @@ mod tests {
             let number = (1 << i) + 1;
             assert!(crate::PowerOfTwo::parse(number).is_err());
         }
+    }
+
+    #[test]
+    fn integer_types_can_be_converted_to_power_of_two() {
+        assert!(crate::PowerOfTwo::try_from(1u8).is_ok());
+        assert!(crate::PowerOfTwo::try_from(1u16).is_ok());
+        assert!(crate::PowerOfTwo::try_from(1u32).is_ok());
+        assert!(crate::PowerOfTwo::try_from(1u64).is_ok());
+        assert!(crate::PowerOfTwo::try_from(1u128).is_ok());
+        assert!(crate::PowerOfTwo::try_from(1usize).is_ok());
+
+        assert!(crate::PowerOfTwo::try_from(1i8).is_ok());
+        assert!(crate::PowerOfTwo::try_from(1i16).is_ok());
+        assert!(crate::PowerOfTwo::try_from(1i32).is_ok());
+        assert!(crate::PowerOfTwo::try_from(1i64).is_ok());
+        assert!(crate::PowerOfTwo::try_from(1i128).is_ok());
+        assert!(crate::PowerOfTwo::try_from(1isize).is_ok());
     }
 }
