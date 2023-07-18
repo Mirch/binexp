@@ -1,7 +1,12 @@
 [package]
 name = "binexp"
 version = "0.1.0"
+authors = ["Mircea Teodor Oprea <mircea@mirceaoprea.net>"]
+license = "MIT"
+repository = "https://github.com/Mirch/binexp"
 edition = "2021"
+rust-version = "1.68"
+description = "A struct that represents power of two numbers."
 
 [lib]
 name = "binexp"
