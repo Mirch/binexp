@@ -17,6 +17,7 @@ use crate::errors::PowerOfTwoError;
 /// assert!(PowerOfTwo::try_from(11i128).is_err());
 /// assert!(PowerOfTwo::try_from(12isize).is_err());
 /// ```
+#[derive(Debug, Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash)]
 pub struct PowerOfTwo(u128);
 
 impl PowerOfTwo {
