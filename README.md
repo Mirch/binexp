@@ -1,7 +1,7 @@
 # binexp
 
 [![CI](https://github.com/Mirch/binexp/actions/workflows/ci.yml/badge.svg)](https://github.com/Mirch/binexp/actions/workflows/ci.yml)
-[![crates](https://img.shields.io/crates/v/binexp)](https://img.shields.io/crates/v/binexp)
+[![crates](https://img.shields.io/crates/v/binexp)](https://crates.io/crates/binexp)
 
 **binexp** provides a `PowerOfTwo` struct that you can create from any valid power of two integer.  
 You can use `PowerOfTwo` as a safe way to represent powers of two in your code.
