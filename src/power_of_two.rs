@@ -228,4 +228,10 @@ mod tests {
         assert!(crate::PowerOfTwo::try_from(1i128).is_ok());
         assert!(crate::PowerOfTwo::try_from(1isize).is_ok());
     }
+
+    #[test]
+    fn power_of_two_can_be_converted_into_u128() {
+        let power_of_two = crate::PowerOfTwo::try_from(1u8).unwrap();
+        assert_eq!(u128::from(power_of_two), 1u128);
+    }
 }
