@@ -172,6 +172,12 @@ impl TryFrom<isize> for PowerOfTwo {
     }
 }
 
+impl From<PowerOfTwo> for u128 {
+    fn from(value: PowerOfTwo) -> Self {
+        value.0
+    }
+}
+
 #[cfg(test)]
 mod tests {
 
